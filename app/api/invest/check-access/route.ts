@@ -19,8 +19,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if verified
-    const { data: investor, error } = await supabase
-      .from("investor_access")
+    const { data: accessor, error } = await supabase
+      .from("deck_access")
       .select("id, status, first_name, verified_at")
       .eq("email", email.toLowerCase())
       .single();
@@ -33,16 +33,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const hasAccess = investor?.status === "verified";
+    const hasAccess = accessor?.status === "verified";
 
     // Track view if verified
     if (hasAccess) {
-      await supabase.rpc("track_deck_view", { investor_email: email.toLowerCase() });
+      await supabase.rpc("track_deck_view", { accessor_email: email.toLowerCase() });
     }
 
     return NextResponse.json({
       hasAccess,
-      firstName: investor?.first_name || null,
+      firstName: accessor?.first_name || null,
     });
   } catch (error) {
     console.error("Check access error:", error);

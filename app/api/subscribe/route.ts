@@ -1,15 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const supabase = createClient(
+  process.env.SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
 /**
  * Newsletter subscription endpoint.
- * Stores email in backend for market launch notifications.
+ * Stores email in Supabase for market launch notifications.
  */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { email } = body;
+    const { email, source = "website" } = body;
 
     // Validate email
     if (!email || typeof email !== "string") {
@@ -27,33 +31,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Forward to backend API
-    try {
-      const response = await fetch(`${BACKEND_URL}/api/v1/newsletter/subscribe`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
+    // Subscribe via Supabase function (handles upsert and reactivation)
+    const { data: subscriber, error } = await supabase
+      .rpc("subscribe_newsletter", {
+        subscriber_email: email,
+        subscriber_source: source,
+        subscriber_metadata: {},
       });
 
-      if (response.ok) {
-        return NextResponse.json({ success: true, message: "Subscribed successfully!" });
-      }
-
-      // If backend returns error, still return success to user
-      // (we don't want to expose backend issues)
-      console.error("Backend subscription failed:", await response.text());
-    } catch (backendError) {
-      // Backend unavailable - log but don't fail user experience
-      console.error("Backend unavailable for newsletter:", backendError);
+    if (error) {
+      console.error("Newsletter subscription error:", error);
+      // Don't expose internal errors - still return success to user
+      return NextResponse.json({
+        success: true,
+        message: "Thanks for subscribing! We'll notify you when markets launch.",
+      });
     }
 
-    // Even if backend fails, return success (email validated)
-    // In production, this should queue for retry
-    return NextResponse.json({ 
-      success: true, 
-      message: "Thanks for subscribing! We'll notify you when markets launch." 
+    return NextResponse.json({
+      success: true,
+      message: "You're on the list! We'll notify you when AO markets launch.",
     });
   } catch (error) {
     console.error("Newsletter subscription error:", error);
