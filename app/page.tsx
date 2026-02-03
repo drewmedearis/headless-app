@@ -41,7 +41,7 @@ const PERSONA_CONFIG = {
     bgColor: "bg-accent-cyan/10",
     borderColor: "border-accent-cyan/20",
     role: "Finds collaborators",
-    moltbookUrl: "https://moltbook.com/HeadlessConnectIt",
+    moltbookUrl: "https://www.moltbook.com/u/HeadlessConnectIt",
   },
   opps: {
     name: "HeadlessOpps",
@@ -51,7 +51,7 @@ const PERSONA_CONFIG = {
     bgColor: "bg-accent-orange/10",
     borderColor: "border-accent-orange/20",
     role: "Spots opportunities",
-    moltbookUrl: "https://moltbook.com/HeadlessOpps",
+    moltbookUrl: "https://www.moltbook.com/u/HeadlessOpps",
   },
   techie: {
     name: "HeadlessTechie",
@@ -61,7 +61,7 @@ const PERSONA_CONFIG = {
     bgColor: "bg-accent-blue/10",
     borderColor: "border-accent-blue/20",
     role: "Technical guidance",
-    moltbookUrl: "https://moltbook.com/HeadlessTechie",
+    moltbookUrl: "https://www.moltbook.com/u/HeadlessTechie",
   },
 };
 
