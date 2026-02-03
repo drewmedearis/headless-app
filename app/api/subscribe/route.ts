@@ -4,10 +4,14 @@ import { createClient } from "@supabase/supabase-js";
 export const dynamic = 'force-dynamic';
 
 function getSupabase() {
-  return createClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-  );
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !key) {
+    throw new Error(`Missing Supabase config: URL=${!!url}, KEY=${!!key}`);
+  }
+
+  return createClient(url, key);
 }
 
 /**
@@ -15,9 +19,8 @@ function getSupabase() {
  * Stores email in Supabase for market launch notifications.
  */
 export async function POST(request: NextRequest) {
-  const supabase = getSupabase();
-
   try {
+    const supabase = getSupabase();
     const body = await request.json();
     const { email, source = "website" } = body;
 
@@ -60,8 +63,9 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Newsletter subscription error:", error);
+    const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to process subscription" },
+      { error: "Failed to process subscription", details: message },
       { status: 500 }
     );
   }
