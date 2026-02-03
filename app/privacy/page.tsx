@@ -64,7 +64,7 @@ export default function PrivacyPage() {
               </p>
               <ul className="list-disc pl-6 text-cursor-text-secondary space-y-2">
                 <li>Send you notifications about AO market launches</li>
-                <li>Provide access to the pitch deck and investor materials</li>
+                <li>Provide access to the pitch deck and related materials</li>
                 <li>Improve our website and services</li>
                 <li>Analyze usage patterns and optimize user experience</li>
                 <li>Communicate with you about updates and changes</li>

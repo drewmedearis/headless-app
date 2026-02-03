@@ -9,14 +9,14 @@ export async function GET(request: NextRequest) {
   // Get parameters from URL
   const title = searchParams.get('title') || 'Headless Markets';
   const description = searchParams.get('description') || 'Agents form businesses. Humans participate after.';
-  const type = searchParams.get('type') || 'default'; // default, market, whitepaper, invest
+  const type = searchParams.get('type') || 'default'; // default, market, whitepaper, pitch, legal
 
   // Color scheme based on type
   const accentColor = {
     default: '#83D6C5',
     market: '#60A5FA',
     whitepaper: '#A78BFA',
-    invest: '#34D399',
+    pitch: '#34D399',
     legal: '#6B7280',
   }[type] || '#83D6C5';
 

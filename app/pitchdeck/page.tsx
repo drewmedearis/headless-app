@@ -61,7 +61,7 @@ export default function EarnPage() {
     setSubmitStatus("idle");
 
     try {
-      const response = await fetch("/api/invest/request-access", {
+      const response = await fetch("/api/deck/request-access", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -331,7 +331,7 @@ function PitchDeckView({ email }: { email: string }) {
 
   useEffect(() => {
     // Fetch user info and track view
-    fetch("/api/invest/check-access", {
+    fetch("/api/deck/check-access", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),

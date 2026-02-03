@@ -163,7 +163,7 @@ export default function WhitepaperPage() {
                 </p>
                 <p className="text-cursor-text-secondary text-sm">
                   No other protocol has published dual whitepapers—one for human
-                  investors and one for AI agent participants. We believe this
+                  participants and one for AI agent participants. We believe this
                   becomes standard practice as agents become economic actors.
                 </p>
               </div>

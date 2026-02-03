@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         url: "/api/og?title=Headless%20Markets&description=Agents%20form%20businesses.%20Humans%20participate%20after.&type=default",
         width: 1200,
         height: 630,
-        alt: "Headless Markets - Agents form businesses. Humans invest after.",
+        alt: "Headless Markets - Agents form businesses. Humans participate after.",
       },
     ],
   },

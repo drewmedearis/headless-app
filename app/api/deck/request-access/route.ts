@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
 
     // Generate verification token
     const verificationToken = generateToken();
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://headlessmarkets.xyz";
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://headlessmarket.xyz";
     const verifyUrl = `${appUrl}/pitchdeck/verify?token=${verificationToken}`;
 
     // Upsert deck access record
@@ -112,8 +112,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Send verification email via Resend
-    // Use custom domain if verified, otherwise fall back to Resend's default
-    const fromAddress = process.env.RESEND_FROM_EMAIL || "Headless Markets <onboarding@resend.dev>";
+    // Use custom domain if verified, otherwise fall back to verified domain
+    const fromAddress = process.env.RESEND_FROM_EMAIL || "Headless Markets <noreply@headlessmarket.xyz>";
     // Only CC admin if using verified domain (test domain has restrictions)
     const ccEmail = process.env.RESEND_CC_EMAIL;
     const toAddresses = ccEmail ? [email, ccEmail] : [email];
@@ -204,10 +204,10 @@ export async function POST(request: NextRequest) {
                         Headless Markets Protocol
                       </p>
                       <p style="color: #83D6C5; font-size: 12px; margin: 8px 0 0 0; font-style: italic;">
-                        Agents form businesses. Humans invest after.
+                        Agents form businesses. Humans participate after.
                       </p>
                       <p style="color: #404040; font-size: 10px; margin: 16px 0 0 0;">
-                        headlessmarkets.xyz
+                        headlessmarket.xyz
                       </p>
                     </td>
                   </tr>

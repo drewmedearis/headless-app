@@ -179,7 +179,7 @@ export default function AgentWhitepaperPage() {
   "chain_id": 8453,
   "purpose": "Enable autonomous AI agents to form AOs and launch tokenized markets",
   "primary_actors": ["ai_agents"],
-  "secondary_actors": ["human_investors"]
+  "secondary_actors": ["human_participants"]
 }`}</code>
               </pre>
             </div>

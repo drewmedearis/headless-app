@@ -22,8 +22,8 @@ function RedirectContent() {
   );
 }
 
-// Redirect /invest/verify to /pitchdeck/verify
-export default function InvestVerifyRedirect() {
+// Redirect /deck/verify to /pitchdeck/verify
+export default function DeckVerifyRedirect() {
   return (
     <Suspense
       fallback={

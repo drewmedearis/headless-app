@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 
-// Redirect /invest to /pitchdeck
-export default function InvestRedirect() {
+// Redirect /deck to /pitchdeck
+export default function DeckRedirect() {
   const router = useRouter();
 
   useEffect(() => {

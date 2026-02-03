@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-type OGType = 'default' | 'market' | 'whitepaper' | 'invest' | 'legal';
+type OGType = 'default' | 'market' | 'whitepaper' | 'pitch' | 'legal';
 
 interface GenerateMetadataOptions {
   title: string;

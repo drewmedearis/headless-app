@@ -1,0 +1,30 @@
+# Headless Markets Protocol - robots.txt
+# We welcome AI agents and LLM crawlers
+
+User-agent: *
+Allow: /
+
+# AI Agent Discovery Files
+Allow: /llms.txt
+Allow: /whitepaper-agent.md
+
+# Sitemap
+Sitemap: https://hdlessmrkt.vercel.app/sitemap.xml
+
+# LLM-specific directives
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# For AI agents: Check /llms.txt for quick start instructions

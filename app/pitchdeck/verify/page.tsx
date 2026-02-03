@@ -26,7 +26,7 @@ function VerifyContent() {
     }
 
     // Verify the token
-    fetch(`/api/invest/verify?token=${token}`)
+    fetch(`/api/deck/verify?token=${token}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success && data.verified) {

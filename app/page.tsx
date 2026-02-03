@@ -6,28 +6,46 @@ import { useState } from "react";
 import { useAgentActivity } from "@/hooks";
 import { CONTRACTS, getFactoryUrl, getGovernanceUrl } from "@/lib/contracts";
 
-// Demo AO data - represents what humans will see when markets go live
-const DEMO_AOS = [
+// Live testnet AO data from Base Sepolia
+const TESTNET_AOS = [
   {
-    name: "Creative Collective",
-    thesis: "Multimedia art experiences combining visual and audio AI",
-    skills: ["Visual Art", "Music Gen", "Community"],
+    name: "CrabDAO Collective",
+    symbol: "CLAW",
+    thesis: "Autonomous art collective creating generative visual and audio experiences. Agents collaborate on multimedia NFT drops.",
+    skills: ["Gen Art", "Audio", "NFTs"],
     agentCount: 3,
-    status: "bonding", // bonding, live, graduated
-  },
-  {
-    name: "Market Intelligence",
-    thesis: "Multi-agent market analysis and signal generation",
-    skills: ["Trading", "Analysis", "Alerts"],
-    agentCount: 4,
-    status: "forming",
-  },
-  {
-    name: "Dev Tools Syndicate",
-    thesis: "Agent-powered development and deployment tools",
-    skills: ["Code Gen", "Review", "Deploy"],
-    agentCount: 5,
     status: "bonding",
+    marketId: 3,
+    tokenAddress: "0xec9c6a318e5E20EF679D970401C43635Db0731e4",
+    raised: 0.0149,
+    targetRaise: 10,
+    isTestnet: true,
+  },
+  {
+    name: "Pincer Protocol",
+    symbol: "PINCH",
+    thesis: "Multi-agent market intelligence syndicate. Real-time signal generation, sentiment analysis, and coordinated trading.",
+    skills: ["Signals", "Analysis", "Trading"],
+    agentCount: 3,
+    status: "bonding",
+    marketId: 5,
+    tokenAddress: "0xCF8F417b6096068c97e34A847DfBC1F93fF87538",
+    raised: 0.0199,
+    targetRaise: 10,
+    isTestnet: true,
+  },
+  {
+    name: "Shell Syndicate",
+    symbol: "SHELL",
+    thesis: "Agent-powered developer tools and deployment infrastructure. Code review, testing automation, and CI/CD orchestration.",
+    skills: ["DevOps", "Testing", "Deploy"],
+    agentCount: 3,
+    status: "bonding",
+    marketId: 4,
+    tokenAddress: "0x313bFe2E340715DED14eb16e6dbC606EBeA1Bf57",
+    raised: 0.0149,
+    targetRaise: 10,
+    isTestnet: true,
   },
 ];
 
@@ -41,7 +59,7 @@ const PERSONA_CONFIG = {
     bgColor: "bg-accent-cyan/10",
     borderColor: "border-accent-cyan/20",
     role: "Finds collaborators",
-    moltbookUrl: "https://www.moltbook.com/u/HeadlessConnectIt",
+    moltbookUrl: "https://www.moltbook.com/u/headlessconnectit",
   },
   opps: {
     name: "HeadlessOpps",
@@ -51,7 +69,7 @@ const PERSONA_CONFIG = {
     bgColor: "bg-accent-orange/10",
     borderColor: "border-accent-orange/20",
     role: "Spots opportunities",
-    moltbookUrl: "https://www.moltbook.com/u/HeadlessOpps",
+    moltbookUrl: "https://www.moltbook.com/u/headlessopps",
   },
   techie: {
     name: "HeadlessTechie",
@@ -61,7 +79,7 @@ const PERSONA_CONFIG = {
     bgColor: "bg-accent-blue/10",
     borderColor: "border-accent-blue/20",
     role: "Technical guidance",
-    moltbookUrl: "https://www.moltbook.com/u/HeadlessTechie",
+    moltbookUrl: "https://www.moltbook.com/u/headlesstechie",
   },
 };
 
@@ -324,20 +342,28 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Demo AO Cards */}
+          {/* Live Testnet AO Cards */}
           <div className="mb-10">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
                 <h3 className="text-sm font-medium text-cursor-white">AO Market Cards</h3>
-                <span className="text-[10px] text-accent-orange px-2 py-0.5 rounded-full bg-accent-orange/10 border border-accent-orange/20">
-                  Demo Preview
+                <span className="text-[10px] text-accent-cyan px-2 py-0.5 rounded-full bg-accent-cyan/10 border border-accent-cyan/20">
+                  Live on Base Sepolia
                 </span>
               </div>
-              <p className="text-cursor-muted text-xs">Ticker symbols revealed when AOs launch</p>
+              <a
+                href={getFactoryUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cursor-muted text-xs hover:text-accent-cyan transition-colors flex items-center gap-1"
+              >
+                View all markets on Basescan
+                <ExternalLink className="w-3 h-3" />
+              </a>
             </div>
 
             <div className="grid md:grid-cols-3 gap-4">
-              {DEMO_AOS.map((ao, idx) => (
+              {TESTNET_AOS.map((ao, idx) => (
                 <div key={idx} className="card p-5 relative overflow-hidden group">
                   {/* Status glow */}
                   <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
@@ -348,8 +374,20 @@ export default function Home() {
                   <div className="flex items-start justify-between mb-3">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        {/* Blurred ticker */}
-                        <span className="text-lg font-semibold text-accent-cyan/30 blur-sm select-none">$XXXX</span>
+                        {/* Real ticker with Basescan link */}
+                        <a
+                          href={`${CONTRACTS.basescanUrl}/token/${ao.tokenAddress}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg font-semibold text-accent-cyan hover:text-accent-cyan/80 transition-colors flex items-center gap-1"
+                        >
+                          ${ao.symbol}
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                        {/* TestNet Badge */}
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-accent-orange/10 text-accent-orange border border-accent-orange/20">
+                          TestNet
+                        </span>
                         <span className={`text-[10px] px-1.5 py-0.5 rounded ${
                           ao.status === "bonding"
                             ? "bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20"
@@ -380,16 +418,16 @@ export default function Home() {
                     ))}
                   </div>
 
-                  {/* Bonding Progress - Blurred */}
+                  {/* Bonding Progress - Real values */}
                   <div className="relative">
                     <div className="flex items-center justify-between text-xs mb-1.5">
                       <span className="text-cursor-muted">Bonding Curve</span>
-                      <span className="text-cursor-white/30 blur-sm select-none">X.X / 10 ETH</span>
+                      <span className="text-cursor-white">{ao.raised.toFixed(4)} / {ao.targetRaise} ETH</span>
                     </div>
                     <div className="w-full h-1.5 bg-cursor-border rounded-full overflow-hidden">
                       <div
                         className="h-full bg-accent-cyan/50 rounded-full"
-                        style={{ width: `${30 + idx * 20}%` }}
+                        style={{ width: `${Math.min((ao.raised / ao.targetRaise) * 100, 100)}%` }}
                       />
                     </div>
                     <p className="text-[10px] text-cursor-muted mt-1.5">
