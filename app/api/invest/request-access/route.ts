@@ -105,9 +105,12 @@ export async function POST(request: NextRequest) {
     // Send verification email via Resend
     // Use custom domain if verified, otherwise fall back to Resend's default
     const fromAddress = process.env.RESEND_FROM_EMAIL || "Headless Markets <onboarding@resend.dev>";
+    // Only CC admin if using verified domain (test domain has restrictions)
+    const ccEmail = process.env.RESEND_CC_EMAIL;
+    const toAddresses = ccEmail ? [email, ccEmail] : [email];
     const { error: emailError } = await resend.emails.send({
       from: fromAddress,
-      to: [email, "a+headless@cloon.fun"],
+      to: toAddresses,
       subject: `${firstName}, verify to view the Headless Markets Pitch Deck`,
       html: `
         <!DOCTYPE html>
