@@ -1,0 +1,400 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --site-header-height: 64px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #E4E4E4;
+  background-color: #0A0A0A;
+  min-height: 100vh;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Selection */
+::selection {
+  background: rgba(131, 214, 197, 0.3);
+  color: #FFFFFF;
+}
+
+/* Custom scrollbar - Cursor style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A3A3A;
+}
+
+@layer components {
+  /* Button styles - Cursor aesthetic */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply bg-cursor-white text-cursor-black;
+    @apply font-medium text-sm;
+    @apply px-5 py-2.5 rounded-lg;
+    @apply transition-all duration-200;
+    @apply hover:bg-opacity-90;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply bg-transparent text-cursor-text;
+    @apply font-medium text-sm;
+    @apply px-5 py-2.5 rounded-lg;
+    @apply border border-cursor-border;
+    @apply transition-all duration-200;
+    @apply hover:border-cursor-border-light hover:bg-cursor-surface;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply bg-transparent text-cursor-text-secondary;
+    @apply font-medium text-sm;
+    @apply px-4 py-2 rounded-lg;
+    @apply transition-all duration-200;
+    @apply hover:text-cursor-text hover:bg-cursor-surface;
+  }
+
+  /* Card styles - Minimal */
+  .card {
+    @apply bg-cursor-surface/50;
+    @apply border border-cursor-border;
+    @apply rounded-xl;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+    @apply hover:border-cursor-border-light;
+    @apply hover:bg-cursor-surface;
+  }
+
+  /* Stat card */
+  .stat-card {
+    @apply bg-transparent;
+    @apply border border-cursor-border;
+    @apply rounded-xl p-6;
+    @apply text-center;
+  }
+
+  .stat-value {
+    @apply text-3xl font-semibold text-cursor-white;
+    @apply tracking-tight;
+  }
+
+  .stat-label {
+    @apply text-cursor-text-secondary text-sm mt-1;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full px-4 py-3;
+    @apply bg-cursor-surface;
+    @apply border border-cursor-border;
+    @apply rounded-lg;
+    @apply text-cursor-text placeholder-cursor-muted;
+    @apply outline-none;
+    @apply transition-all duration-200;
+    @apply focus:border-cursor-border-light;
+  }
+
+  /* Section divider */
+  .divider {
+    @apply border-t border-cursor-border;
+  }
+
+  /* Nav link */
+  .nav-link {
+    @apply text-cursor-text-secondary text-sm;
+    @apply transition-colors duration-200;
+    @apply hover:text-cursor-text;
+  }
+
+  /* Accent text */
+  .text-accent {
+    @apply text-accent-cyan;
+  }
+
+  /* Subtle gradient for hero text */
+  .gradient-text {
+    background: linear-gradient(135deg, #FFFFFF 0%, #83D6C5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-2;
+    @apply px-3 py-1.5;
+    @apply text-xs font-medium;
+    @apply rounded-full;
+    @apply border;
+  }
+
+  .badge-accent {
+    @apply bg-accent-cyan/10 text-accent-cyan border-accent-cyan/20;
+  }
+
+  /* Feature card icon container */
+  .icon-box {
+    @apply w-10 h-10;
+    @apply flex items-center justify-center;
+    @apply rounded-lg;
+    @apply bg-cursor-border;
+    @apply text-cursor-text;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Whitepaper prose styles */
+.prose-custom h2 {
+  @apply text-2xl font-semibold text-cursor-white mt-0 mb-6;
+}
+
+.prose-custom h3 {
+  @apply text-lg font-medium text-cursor-white mt-8 mb-4;
+}
+
+.prose-custom h4 {
+  @apply text-base font-medium text-cursor-white mt-4 mb-2;
+}
+
+.prose-custom p {
+  @apply text-cursor-text-secondary leading-relaxed mb-4;
+}
+
+.prose-custom strong {
+  @apply text-cursor-white font-medium;
+}
+
+.prose-custom em {
+  @apply italic;
+}
+
+.prose-custom ul, .prose-custom ol {
+  @apply text-cursor-text-secondary mb-4 pl-6 space-y-2;
+}
+
+.prose-custom ul {
+  @apply list-disc;
+}
+
+.prose-custom ol {
+  @apply list-decimal;
+}
+
+.prose-custom li {
+  @apply leading-relaxed;
+}
+
+.prose-custom blockquote {
+  @apply border-l-2 border-accent-cyan pl-4 py-2 my-6;
+  @apply text-cursor-text italic;
+}
+
+.prose-custom code {
+  @apply font-mono text-sm bg-cursor-surface px-2 py-1 rounded;
+  @apply text-accent-cyan;
+}
+
+.prose-custom a {
+  @apply text-accent-cyan hover:underline;
+}
+
+/* Callout box */
+.prose-custom .callout {
+  @apply p-6 rounded-xl my-8;
+  @apply bg-accent-cyan/5 border border-accent-cyan/20;
+}
+
+.prose-custom .callout-title {
+  @apply text-accent-cyan text-sm font-medium mb-2;
+}
+
+.prose-custom .callout p:last-child {
+  @apply mb-0 text-cursor-text text-lg;
+}
+
+/* Numbered steps */
+.prose-custom .numbered-steps {
+  @apply space-y-6 my-8;
+}
+
+.prose-custom .step {
+  @apply flex gap-4;
+}
+
+.prose-custom .step-number {
+  @apply shrink-0 w-8 h-8 rounded-full;
+  @apply bg-cursor-border text-cursor-white;
+  @apply flex items-center justify-center;
+  @apply text-sm font-medium;
+}
+
+.prose-custom .step h4 {
+  @apply mt-0 mb-1;
+}
+
+.prose-custom .step p {
+  @apply text-sm;
+}
+
+/* Comparison table */
+.prose-custom .comparison-table {
+  @apply my-8 overflow-x-auto;
+}
+
+.prose-custom table {
+  @apply w-full text-sm;
+}
+
+.prose-custom th {
+  @apply text-left p-3 bg-cursor-surface text-cursor-white font-medium;
+  @apply border-b border-cursor-border;
+}
+
+.prose-custom td {
+  @apply p-3 text-cursor-text-secondary;
+  @apply border-b border-cursor-border;
+}
+
+.prose-custom tr:last-child td {
+  @apply border-b-0;
+}
+
+/* Example box */
+.prose-custom .example-box {
+  @apply p-6 rounded-xl my-8;
+  @apply bg-cursor-surface/50 border border-cursor-border;
+}
+
+.prose-custom .example-title {
+  @apply text-cursor-white font-medium mb-3;
+}
+
+.prose-custom .example-box ul {
+  @apply mb-3;
+}
+
+.prose-custom .example-box p:last-child {
+  @apply mb-0 text-sm;
+}
+
+/* Formula box */
+.prose-custom .formula-box {
+  @apply p-6 rounded-xl my-8;
+  @apply bg-cursor-surface border border-cursor-border;
+}
+
+.prose-custom .formula-title {
+  @apply text-cursor-muted text-xs uppercase tracking-wide mb-3;
+}
+
+.prose-custom .formula-box code {
+  @apply block text-lg py-2;
+}
+
+.prose-custom .formula-example {
+  @apply text-sm text-cursor-muted mt-3 mb-0;
+}
+
+/* Math example */
+.prose-custom .math-example {
+  @apply p-6 rounded-xl my-8;
+  @apply bg-accent-orange/5 border border-accent-orange/20;
+}
+
+.prose-custom .math-title {
+  @apply text-accent-orange text-sm font-medium mb-3;
+}
+
+.prose-custom .math-conclusion {
+  @apply text-cursor-white mt-4 pt-4 border-t border-accent-orange/20 mb-0;
+}
+
+/* Timing factors */
+.prose-custom .timing-factors {
+  @apply grid gap-6 my-8;
+}
+
+.prose-custom .factor {
+  @apply p-5 rounded-lg bg-cursor-surface/30 border border-cursor-border;
+}
+
+.prose-custom .factor h4 {
+  @apply mt-0;
+}
+
+.prose-custom .factor p {
+  @apply mb-0 text-sm;
+}
+
+/* Roadmap */
+.prose-custom .roadmap {
+  @apply space-y-6 my-8;
+}
+
+.prose-custom .roadmap-phase {
+  @apply p-5 rounded-lg border border-cursor-border;
+  @apply relative pl-8;
+}
+
+.prose-custom .roadmap-phase::before {
+  content: '';
+  @apply absolute left-3 top-6 bottom-0 w-px bg-cursor-border;
+}
+
+.prose-custom .roadmap-phase:last-child::before {
+  @apply hidden;
+}
+
+.prose-custom .roadmap-phase h4 {
+  @apply mt-0 mb-3;
+}
+
+.prose-custom .roadmap-phase ul {
+  @apply mb-0 text-sm;
+}
+
+/* Conclusion */
+.prose-custom .conclusion {
+  @apply mt-16 pt-12 border-t border-cursor-border;
+}
+
+.prose-custom .final-quote {
+  @apply text-center py-8 mt-8;
+}
+
+.prose-custom .final-quote p {
+  @apply text-2xl text-cursor-text-secondary mb-0;
+}
+
+.prose-custom .final-quote .highlight {
+  @apply text-accent-cyan;
+}
