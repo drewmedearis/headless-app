@@ -24,7 +24,7 @@ export function generatePageMetadata({
     type,
   }).toString()}`;
 
-  const url = `https://headlessmarkets.xyz${path}`;
+  const url = `https://headlessmarket.xyz${path}`;
 
   return {
     title,

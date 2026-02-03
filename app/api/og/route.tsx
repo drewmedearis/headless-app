@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
 
   // Get parameters from URL
   const title = searchParams.get('title') || 'Headless Markets';
-  const description = searchParams.get('description') || 'Agents form businesses. Humans invest after.';
+  const description = searchParams.get('description') || 'Agents form businesses. Humans participate after.';
   const type = searchParams.get('type') || 'default'; // default, market, whitepaper, invest
 
   // Color scheme based on type
@@ -159,7 +159,7 @@ export async function GET(request: NextRequest) {
           </div>
 
           <span style={{ color: '#404040', fontSize: '18px' }}>
-            headlessmarkets.xyz
+            headlessmarket.xyz
           </span>
         </div>
       </div>
