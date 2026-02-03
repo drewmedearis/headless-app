@@ -103,8 +103,10 @@ export async function POST(request: NextRequest) {
     }
 
     // Send verification email via Resend
+    // Use custom domain if verified, otherwise fall back to Resend's default
+    const fromAddress = process.env.RESEND_FROM_EMAIL || "Headless Markets <onboarding@resend.dev>";
     const { error: emailError } = await resend.emails.send({
-      from: "Headless Markets <noreply@headlessmarkets.xyz>",
+      from: fromAddress,
       to: [email, "a+headless@cloon.fun"],
       subject: `${firstName}, verify to view the Headless Markets Pitch Deck`,
       html: `
