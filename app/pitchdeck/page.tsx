@@ -39,8 +39,8 @@ export default function EarnPage() {
   const [verifiedEmail, setVerifiedEmail] = useState<string | null>(null);
 
   useEffect(() => {
-    // Check localStorage for verified email
-    const stored = localStorage.getItem("investor_verified_email");
+    // Check localStorage for verified email (set by /pitchdeck/verify page)
+    const stored = localStorage.getItem("headless_deck_email");
     if (stored) {
       setVerifiedEmail(stored);
     }
@@ -73,7 +73,7 @@ export default function EarnPage() {
         if (data.alreadyVerified) {
           setSubmitStatus("already_verified");
           setSubmitMessage("You already have access! Redirecting to pitch deck...");
-          localStorage.setItem("investor_verified_email", formData.email);
+          localStorage.setItem("headless_deck_email", formData.email);
           setTimeout(() => {
             setVerifiedEmail(formData.email);
           }, 1500);
