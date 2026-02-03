@@ -1,16 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+function getSupabase() {
+  return createClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
 /**
  * Cookie consent tracking endpoint.
  * Records user consent for analytics/marketing with attribution data.
  */
 export async function POST(request: NextRequest) {
+  const supabase = getSupabase();
+
   try {
     const body = await request.json();
     const {

@@ -2,12 +2,16 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 
-const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+function getSupabase() {
+  return createClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 const INVESTMENT_SIZES = [
   "under_25k",
@@ -28,6 +32,9 @@ function generateToken(): string {
 }
 
 export async function POST(request: NextRequest) {
+  const supabase = getSupabase();
+  const resend = getResend();
+
   try {
     const body = await request.json();
     const { email, firstName, lastName, company, investmentSize } = body;
