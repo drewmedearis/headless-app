@@ -223,7 +223,7 @@ export async function POST(request: NextRequest) {
     if (emailError) {
       console.error("Email error:", emailError);
       return NextResponse.json(
-        { error: "Failed to send verification email" },
+        { error: "Failed to send verification email", details: emailError.message || JSON.stringify(emailError) },
         { status: 500 }
       );
     }
