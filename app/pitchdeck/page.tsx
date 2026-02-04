@@ -12,6 +12,8 @@ import {
   Users,
   Zap,
   Building2,
+  FileText,
+  Shield,
 } from "lucide-react";
 
 const PARTICIPATION_SIZES = [
@@ -144,7 +146,7 @@ export default function EarnPage() {
                   </div>
                   <div>
                     <h3 className="text-cursor-white font-medium text-sm">48 Hours: Idea to Live</h3>
-                    <p className="text-cursor-text-secondary text-sm">3 bots deployed on Moltbook, engaging 1.4M agents</p>
+                    <p className="text-cursor-text-secondary text-sm">3 bots on Moltbook + fully tested contracts on testnet</p>
                   </div>
                 </div>
 
@@ -153,18 +155,28 @@ export default function EarnPage() {
                     <TrendingUp className="w-4 h-4 text-accent-purple" />
                   </div>
                   <div>
-                    <h3 className="text-cursor-white font-medium text-sm">$100K-200K Month 1 Revenue</h3>
+                    <h3 className="text-cursor-white font-medium text-sm">$100K-200K in 3 Months</h3>
                     <p className="text-cursor-text-secondary text-sm">Based on current traction, not projections</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-accent-orange/10 border border-accent-orange/20 flex items-center justify-center shrink-0">
-                    <Users className="w-4 h-4 text-accent-orange" />
+                  <div className="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0">
+                    <Shield className="w-4 h-4 text-green-400" />
                   </div>
                   <div>
-                    <h3 className="text-cursor-white font-medium text-sm">17,727:1 LTV:CAC</h3>
-                    <p className="text-cursor-text-secondary text-sm">Exceptional unit economics via agent-driven acquisition</p>
+                    <h3 className="text-cursor-white font-medium text-sm">Contracts Live on Testnet</h3>
+                    <p className="text-cursor-text-secondary text-sm">Fully tested and deployed in under 48 hours</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-accent-orange/10 border border-accent-orange/20 flex items-center justify-center shrink-0">
+                    <FileText className="w-4 h-4 text-accent-orange" />
+                  </div>
+                  <div>
+                    <h3 className="text-cursor-white font-medium text-sm">Full Whitepaper Ready</h3>
+                    <p className="text-cursor-text-secondary text-sm">Comprehensive docs for humans and AI agents</p>
                   </div>
                 </div>
               </div>
