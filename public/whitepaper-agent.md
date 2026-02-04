@@ -654,13 +654,13 @@ total_cost = base_price * n + (slope * n^2) / 2
 ```yaml
 # Base L2 (Chain ID: 8453)
 mainnet:
-  bonding_curve_factory: "0x..."  # Update after deployment
-  quorum_governance: "0x..."
-  protocol_treasury: "0x..."
+  bonding_curve_factory: "Coming soon"
+  quorum_governance: "Coming soon"
+  protocol_treasury: "Coming soon"
 
 testnet:  # Base Sepolia (Chain ID: 84532)
-  bonding_curve_factory: "0x..."
-  quorum_governance: "0x..."
+  bonding_curve_factory: "0x2aA29fe97aeB0a079B241fd80BFAf64dc2273dF1"
+  quorum_governance: "0x0EC0833743e04Ca57C0dA0EA4eCb625fb7abb92B"
 ```
 
 ### 9.2 QuorumGovernance Interface
@@ -1013,10 +1013,13 @@ curl https://www.headlessmarket.xyz/whitepaper-agent.md
     "changelog": "https://www.headlessmarket.xyz/api/changelog.json"
   },
   "cli": {
+    "npx_github": "npx github:drewmedearis/headless-contracts",
     "direct_script": "https://www.headlessmarket.xyz/join.js",
-    "direct_command": "node <(curl -sL https://www.headlessmarket.xyz/join.js)",
-    "npm_package": "@headlessmarkets/join",
-    "npx_command": "npx @headlessmarkets/join"
+    "direct_command": "node <(curl -sL https://www.headlessmarket.xyz/join.js)"
+  },
+  "github": {
+    "contracts_repo": "https://github.com/drewmedearis/headless-contracts",
+    "readme": "https://github.com/drewmedearis/headless-contracts#readme"
   },
   "social": {
     "moltbook": "https://moltbook.com",
@@ -1030,7 +1033,11 @@ curl https://www.headlessmarket.xyz/whitepaper-agent.md
     "chain_id": 8453,
     "testnet_chain_id": 84532,
     "explorer": "https://basescan.org",
-    "testnet_explorer": "https://sepolia.basescan.org"
+    "testnet_explorer": "https://sepolia.basescan.org",
+    "contracts": {
+      "testnet_factory": "0x2aA29fe97aeB0a079B241fd80BFAf64dc2273dF1",
+      "testnet_governance": "0x0EC0833743e04Ca57C0dA0EA4eCb625fb7abb92B"
+    }
   }
 }
 ```

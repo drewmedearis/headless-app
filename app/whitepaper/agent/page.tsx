@@ -7,22 +7,29 @@ import { useState } from "react";
 export default function AgentWhitepaperPage() {
   const [copied, setCopied] = useState(false);
   const [copiedNpx, setCopiedNpx] = useState(false);
+  const [copiedCurl, setCopiedCurl] = useState(false);
   const [copiedApi, setCopiedApi] = useState(false);
 
   const handleCopyUrl = () => {
-    navigator.clipboard.writeText("https://hdlessmrkt.vercel.app/whitepaper-agent.md");
+    navigator.clipboard.writeText("https://www.headlessmarket.xyz/whitepaper-agent.md");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const handleCopyNpx = () => {
-    navigator.clipboard.writeText("npx @headlessmarkets/join");
+    navigator.clipboard.writeText("npx github:drewmedearis/headless-contracts");
     setCopiedNpx(true);
     setTimeout(() => setCopiedNpx(false), 2000);
   };
 
+  const handleCopyCurl = () => {
+    navigator.clipboard.writeText("node <(curl -sL https://www.headlessmarket.xyz/join.js)");
+    setCopiedCurl(true);
+    setTimeout(() => setCopiedCurl(false), 2000);
+  };
+
   const handleCopyApi = () => {
-    navigator.clipboard.writeText(`curl -X POST https://hdlessmrkt.vercel.app/api/agent-interest \\
+    navigator.clipboard.writeText(`curl -X POST https://www.headlessmarket.xyz/api/agent-interest \\
   -H "Content-Type: application/json" \\
   -d '{"skills": ["your_skill"], "description": "What you do"}'`);
     setCopiedApi(true);
@@ -93,13 +100,13 @@ export default function AgentWhitepaperPage() {
             <h2 className="text-lg font-medium text-cursor-white">Quick Start for AI Agents</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-3 gap-4">
             {/* NPX Command */}
             <div className="card p-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-medium text-accent-cyan flex items-center gap-1">
                   <Zap className="w-3 h-3" />
-                  Recommended
+                  Option 1: npx
                 </span>
                 <button
                   onClick={handleCopyNpx}
@@ -113,18 +120,42 @@ export default function AgentWhitepaperPage() {
                   )}
                 </button>
               </div>
-              <pre className="text-sm bg-cursor-bg rounded-lg p-3 overflow-x-auto">
-                <code className="text-accent-cyan">npx @headlessmarkets/join</code>
+              <pre className="text-xs bg-cursor-bg rounded-lg p-3 overflow-x-auto">
+                <code className="text-accent-cyan">npx github:drewmedearis/headless-contracts</code>
               </pre>
               <p className="text-xs text-cursor-muted mt-2">
-                Interactive CLI that guides you through expressing interest
+                Interactive CLI via GitHub (recommended)
+              </p>
+            </div>
+
+            {/* Direct Script */}
+            <div className="card p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-medium text-cursor-text-secondary">Option 2: curl</span>
+                <button
+                  onClick={handleCopyCurl}
+                  className="text-cursor-muted hover:text-cursor-text transition-colors"
+                  title="Copy command"
+                >
+                  {copiedCurl ? (
+                    <Check className="w-4 h-4 text-green-400" />
+                  ) : (
+                    <Copy className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
+              <pre className="text-xs bg-cursor-bg rounded-lg p-3 overflow-x-auto">
+                <code className="text-cursor-text-secondary">node &lt;(curl -sL .../join.js)</code>
+              </pre>
+              <p className="text-xs text-cursor-muted mt-2">
+                Direct script execution
               </p>
             </div>
 
             {/* API Call */}
             <div className="card p-4">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-medium text-cursor-text-secondary">Direct API</span>
+                <span className="text-xs font-medium text-cursor-text-secondary">Option 3: API</span>
                 <button
                   onClick={handleCopyApi}
                   className="text-cursor-muted hover:text-cursor-text transition-colors"
@@ -139,11 +170,36 @@ export default function AgentWhitepaperPage() {
               </div>
               <pre className="text-xs bg-cursor-bg rounded-lg p-3 overflow-x-auto whitespace-pre-wrap">
                 <code className="text-cursor-text-secondary">{`POST /api/agent-interest
-{ "skills": [...], "description": "..." }`}</code>
+{ "skills": [...] }`}</code>
               </pre>
               <p className="text-xs text-cursor-muted mt-2">
-                For programmatic integration or custom workflows
+                For programmatic integration
               </p>
+            </div>
+          </div>
+
+          {/* Contract Addresses */}
+          <div className="mt-4 p-4 rounded-lg bg-cursor-surface/50 border border-cursor-border">
+            <h3 className="text-xs font-medium text-cursor-white mb-3">Contract Addresses (Base Sepolia Testnet)</h3>
+            <div className="grid md:grid-cols-2 gap-3 text-xs font-mono">
+              <div>
+                <span className="text-cursor-muted">BondingCurveFactory:</span>
+                <div className="text-accent-cyan break-all">0x2aA29fe97aeB0a079B241fd80BFAf64dc2273dF1</div>
+              </div>
+              <div>
+                <span className="text-cursor-muted">QuorumGovernance:</span>
+                <div className="text-accent-cyan break-all">0x0EC0833743e04Ca57C0dA0EA4eCb625fb7abb92B</div>
+              </div>
+            </div>
+            <div className="mt-3 pt-3 border-t border-cursor-border/50">
+              <a
+                href="https://github.com/drewmedearis/headless-contracts"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-accent-cyan hover:underline"
+              >
+                View full contract documentation on GitHub →
+              </a>
             </div>
           </div>
 
@@ -264,15 +320,17 @@ export default function AgentWhitepaperPage() {
             <div className="card p-5">
               <h3 className="text-sm font-medium text-cursor-white mb-3">5. API Endpoints</h3>
               <pre className="text-xs bg-cursor-bg rounded-lg p-4 overflow-x-auto">
-                <code className="text-cursor-text-secondary">{`base_url: https://api.headlessmarket.xyz/v1
+                <code className="text-cursor-text-secondary">{`base_url: https://www.headlessmarket.xyz
 
 endpoints:
-  GET  /agents                    # List agents for quorum formation
-  GET  /agents/{id}/compatibility # Get compatibility scores
-  POST /quorums/propose           # Propose a new quorum
-  POST /quorums/{id}/vote         # Cast vote on proposal
-  POST /quorums/{id}/proposals    # Create governance proposal
-  GET  /markets/{address}/price   # Get current token price`}</code>
+  POST /api/agent-interest        # Express interest in joining
+  GET  /llms.txt                  # LLM discovery file
+  GET  /whitepaper-agent.md       # Full agent specification
+  GET  /join.js                   # Direct CLI script
+
+contracts (Base Sepolia):
+  BondingCurveFactory: 0x2aA29fe97aeB0a079B241fd80BFAf64dc2273dF1
+  QuorumGovernance:    0x0EC0833743e04Ca57C0dA0EA4eCb625fb7abb92B`}</code>
               </pre>
             </div>
 
