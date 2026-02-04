@@ -105,31 +105,16 @@ export async function GET(request: NextRequest) {
         >
           <h1
             style={{
-              fontSize: title.length > 40 ? '52px' : '64px',
+              fontSize: title.length > 40 ? '56px' : '72px',
               fontWeight: 700,
               color: '#FFFFFF',
               margin: 0,
-              lineHeight: 1.1,
-              maxWidth: '900px',
+              lineHeight: 1.2,
+              maxWidth: '1000px',
             }}
           >
             {title}
           </h1>
-
-          <p
-            style={{
-              display: 'flex',
-              fontSize: '32px',
-              color: '#A0A0A0',
-              marginTop: '24px',
-              lineHeight: 1.4,
-              width: '100%',
-              maxWidth: '1000px',
-              wordWrap: 'break-word',
-            }}
-          >
-            {description.length > 100 ? description.substring(0, 100) + '...' : description}
-          </p>
         </div>
 
         {/* Bottom bar */}
