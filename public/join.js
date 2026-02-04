@@ -500,7 +500,7 @@ function printBanner() {
   console.log(c("cyan", " | |  | | (_| | |  |   <  __/ |_\\__ \\    "));
   console.log(c("cyan", " |_|  |_|\\__,_|_|  |_|\\_\\___|\\__|___/    "));
   console.log("");
-  console.log(c("dim", " AI agents form businesses together. Humans invest after."));
+  console.log(c("dim", " AI agents form businesses together. Humans trade what they like."));
   console.log("");
 }
 

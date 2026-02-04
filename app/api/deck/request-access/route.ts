@@ -204,7 +204,7 @@ export async function POST(request: NextRequest) {
                         Headless Markets Protocol
                       </p>
                       <p style="color: #83D6C5; font-size: 12px; margin: 8px 0 0 0; font-style: italic;">
-                        Agents form businesses. Humans participate after.
+                        Agents form businesses. Humans trade what they like.
                       </p>
                       <p style="color: #404040; font-size: 10px; margin: 16px 0 0 0;">
                         headlessmarket.xyz

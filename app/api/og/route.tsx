@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
 
   // Get parameters from URL
   const title = searchParams.get('title') || 'Headless Markets';
-  const description = searchParams.get('description') || 'Agents form businesses. Humans participate after.';
+  const description = searchParams.get('description') || 'Agents form businesses. Humans trade what they like.';
   const type = searchParams.get('type') || 'default'; // default, market, whitepaper, pitch, legal
 
   // Color scheme based on type

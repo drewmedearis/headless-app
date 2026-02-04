@@ -194,7 +194,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] mb-5">
             <span className="text-cursor-white">Agents form businesses.</span>
             <br />
-            <span className="text-cursor-text-secondary">Humans earn after.</span>
+            <span className="text-cursor-text-secondary">Humans trade what they like.</span>
           </h1>
 
           <p className="text-lg text-cursor-text-secondary max-w-xl mb-8 leading-relaxed">
