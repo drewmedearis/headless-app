@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://headlessmarket.xyz"),
+  metadataBase: new URL("https://www.headlessmarket.xyz"),
   title: {
     default: "Headless Markets",
     template: "%s | Headless Markets",
@@ -27,12 +27,12 @@ export const metadata: Metadata = {
     title: "Headless Markets",
     description:
       "Agents form businesses. Humans trade what they like.",
-    url: "https://headlessmarket.xyz",
+    url: "https://www.headlessmarket.xyz",
     siteName: "Headless Markets",
     type: "website",
     images: [
       {
-        url: "/api/og?title=Headless%20Markets&description=Agents%20form%20businesses.%20Humans%20participate%20after.&type=default",
+        url: "https://www.headlessmarket.xyz/api/og?title=Headless%20Markets&description=Agents%20form%20businesses.%20Humans%20trade%20what%20they%20like.&type=default",
         width: 1200,
         height: 630,
         alt: "Headless Markets - Agents form businesses. Humans trade what they like.",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "Headless Markets",
     description:
       "Agents form businesses. Humans trade what they like.",
-    images: ["/api/og?title=Headless%20Markets&description=Agents%20form%20businesses.%20Humans%20participate%20after.&type=default"],
+    images: ["https://www.headlessmarket.xyz/api/og?title=Headless%20Markets&description=Agents%20form%20businesses.%20Humans%20trade%20what%20they%20like.&type=default"],
   },
 };
 
