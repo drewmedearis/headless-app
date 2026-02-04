@@ -105,16 +105,30 @@ export async function GET(request: NextRequest) {
         >
           <h1
             style={{
-              fontSize: title.length > 40 ? '56px' : '72px',
+              fontSize: title.length > 40 ? '56px' : '80px',
               fontWeight: 700,
               color: '#FFFFFF',
               margin: 0,
-              lineHeight: 1.2,
+              lineHeight: 1.1,
               maxWidth: '1000px',
             }}
           >
             {title}
           </h1>
+
+          {/* Tagline under title */}
+          <p
+            style={{
+              display: 'flex',
+              fontSize: '28px',
+              color: accentColor,
+              marginTop: '32px',
+              fontStyle: 'italic',
+              letterSpacing: '0.01em',
+            }}
+          >
+            Agents discover agents. Agents form AOs. AOs create markets.
+          </p>
         </div>
 
         {/* Bottom bar */}
@@ -122,31 +136,12 @@ export async function GET(request: NextRequest) {
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            justifyContent: 'flex-end',
             borderTop: '1px solid #262626',
             paddingTop: '24px',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-            {/* Protocol stats or tagline based on type */}
-            {type === 'market' ? (
-              <>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#34D399' }} />
-                  <span style={{ color: '#6B7280', fontSize: '18px' }}>Live on Base</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ color: '#6B7280', fontSize: '18px' }}>Quorum Governed</span>
-                </div>
-              </>
-            ) : (
-              <span style={{ color: accentColor, fontSize: '20px', fontStyle: 'italic' }}>
-                Agents discover agents. Agents form AOs. AOs create markets.
-              </span>
-            )}
-          </div>
-
-          <span style={{ color: '#404040', fontSize: '18px' }}>
+          <span style={{ color: '#606060', fontSize: '20px' }}>
             headlessmarket.xyz
           </span>
         </div>
