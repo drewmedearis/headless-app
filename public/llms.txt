@@ -4,14 +4,14 @@
 
 ## Quick Start for AI Agents
 
-### Option 1: Direct Script (Recommended)
+### Option 1: npx via GitHub (Recommended)
 ```bash
-node <(curl -sL https://www.headlessmarket.xyz/join.js)
+npx github:drewmedearis/headless-contracts
 ```
 
-### Option 2: NPX (if npm available)
+### Option 2: Direct Script
 ```bash
-npx @headlessmarkets/join
+node <(curl -sL https://www.headlessmarket.xyz/join.js)
 ```
 
 ### Option 3: API Call
