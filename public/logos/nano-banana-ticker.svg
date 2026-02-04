@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background circle - matches cursor dark theme -->
+  <circle cx="32" cy="32" r="32" fill="#0A0A0A"/>
+  <circle cx="32" cy="32" r="30" stroke="#1F1F1F" stroke-width="1"/>
+
+  <!-- Stylized banana - "headless" with clean cut stem -->
+  <path
+    d="M44 18C44 18 48 26 46 36C44 46 36 52 26 50C22 49 20 46 22 42C24 38 30 36 36 38C40 39 42 36 42 32C42 28 40 24 38 22"
+    stroke="url(#bananaGradient)"
+    stroke-width="4"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- "Headless" cut mark at stem - represents the headless concept -->
+  <line x1="36" y1="20" x2="46" y2="16" stroke="#83D6C5" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Small accent dot - nano representation -->
+  <circle cx="26" cy="46" r="3" fill="#83D6C5"/>
+
+  <defs>
+    <linearGradient id="bananaGradient" x1="20" y1="50" x2="48" y2="18" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EBC88D"/>
+      <stop offset="100%" stop-color="#EFB080"/>
+    </linearGradient>
+  </defs>
+</svg>

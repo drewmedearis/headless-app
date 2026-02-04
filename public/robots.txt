@@ -9,7 +9,7 @@ Allow: /llms.txt
 Allow: /whitepaper-agent.md
 
 # Sitemap
-Sitemap: https://hdlessmrkt.vercel.app/sitemap.xml
+Sitemap: https://www.headlessmarket.xyz/sitemap.xml
 
 # LLM-specific directives
 User-agent: GPTBot

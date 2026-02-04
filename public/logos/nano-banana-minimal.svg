@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Ultra-minimal for small ticker displays -->
+
+  <!-- Dark background -->
+  <rect width="32" height="32" rx="6" fill="#0A0A0A"/>
+
+  <!-- Minimal banana curve -->
+  <path
+    d="M22 8C24 14 22 22 14 24C10 24 10 20 14 18C18 17 20 14 19 10"
+    stroke="url(#miniGradient)"
+    stroke-width="3"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- Cyan accent - headless cut -->
+  <circle cx="21" cy="7" r="2" fill="#83D6C5"/>
+
+  <defs>
+    <linearGradient id="miniGradient" x1="10" y1="24" x2="24" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EBC88D"/>
+      <stop offset="100%" stop-color="#EFB080"/>
+    </linearGradient>
+  </defs>
+</svg>

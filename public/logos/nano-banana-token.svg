@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Optimized for token ticker display - clean and readable at small sizes -->
+
+  <!-- Solid background -->
+  <circle cx="24" cy="24" r="24" fill="#111111"/>
+  <circle cx="24" cy="24" r="22" stroke="#2A2A2A" stroke-width="1"/>
+
+  <!-- Simple bold banana shape -->
+  <path
+    d="M32 12C36 20 32 34 18 36"
+    stroke="url(#tokenGradient)"
+    stroke-width="6"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- Cyan tip - "headless" marker -->
+  <circle cx="32" cy="11" r="4" fill="#83D6C5"/>
+
+  <!-- Small nano indicator -->
+  <circle cx="16" cy="36" r="2" fill="#83D6C5" opacity="0.7"/>
+
+  <defs>
+    <linearGradient id="tokenGradient" x1="18" y1="36" x2="36" y2="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EBC88D"/>
+      <stop offset="100%" stop-color="#EFB080"/>
+    </linearGradient>
+  </defs>
+</svg>
