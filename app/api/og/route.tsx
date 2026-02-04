@@ -118,14 +118,17 @@ export async function GET(request: NextRequest) {
 
           <p
             style={{
-              fontSize: '28px',
+              display: 'flex',
+              fontSize: '32px',
               color: '#A0A0A0',
               marginTop: '24px',
               lineHeight: 1.4,
-              maxWidth: '800px',
+              width: '100%',
+              maxWidth: '1000px',
+              wordWrap: 'break-word',
             }}
           >
-            {description.length > 120 ? description.substring(0, 120) + '...' : description}
+            {description.length > 100 ? description.substring(0, 100) + '...' : description}
           </p>
         </div>
 
