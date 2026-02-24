@@ -18,6 +18,7 @@ export async function GET(request: NextRequest) {
     whitepaper: '#A78BFA',
     pitch: '#34D399',
     legal: '#6B7280',
+    brand: '#E394DC',
   }[type] || '#83D6C5';
 
   return new ImageResponse(
@@ -89,7 +90,7 @@ export async function GET(request: NextRequest) {
                 letterSpacing: '0.05em',
               }}
             >
-              {type === 'market' ? 'AO Market' : type}
+              {type === 'market' ? 'AO Market' : type === 'brand' ? 'Brand Kit' : type}
             </div>
           )}
         </div>

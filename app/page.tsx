@@ -1029,6 +1029,9 @@ export default function Home() {
                 <Link href="/whitepaper" className="nav-link text-xs">
                   Whitepaper
                 </Link>
+                <Link href="/brand" className="nav-link text-xs">
+                  Brand Kit
+                </Link>
                 <Link href="/terms" className="nav-link text-xs">
                   Terms of Service
                 </Link>
